@@ -10,6 +10,8 @@ sudo apt update && sudo apt upgrade -y
 echo "Installazione XFCE..."
 sudo apt install -y xfce4 xfce4-goodies
 
+sudo apt install libpam-modules
+sudo apt install dbus-x11
 # --- Installa TigerVNC ---
 echo "Installazione TigerVNC..."
 sudo apt install -y tigervnc-standalone-server tigervnc-common
@@ -62,5 +64,8 @@ echo "Abilitazione e avvio systemd service..."
 sudo systemctl daemon-reload
 sudo systemctl enable vncserver@1.service
 sudo systemctl start vncserver@1.service
+
+
+sudo systemctl set-default multi-user.target
 
 echo "✅ Setup completato! Connettiti con il client VNC a localhost:5901 o IP_SERVER:5901"
